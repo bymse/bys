@@ -1,7 +1,7 @@
-from flask import current_app
+import bys.config
 from urllib.parse import urljoin
 
 
 def get_short_url(url_code):
-    base_url = current_app.config["BaseUrl"]
-    return urljoin(base_url, url_code)
+    base_url = bys.config.get_val("BaseUrl")
+    return base_url.strip("/") + f'/s/{url_code}'

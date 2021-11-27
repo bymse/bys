@@ -1,5 +1,5 @@
-import store
-import url_code
+from bys.urls import store
+from bys.urls import url_code
 from bys.routes_helper import get_short_url
 
 

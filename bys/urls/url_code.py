@@ -1,5 +1,5 @@
 import random
-import store
+from bys.urls import store
 
 
 def get_url_codes():

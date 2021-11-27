@@ -24,12 +24,12 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    import db
+    from bys import db 
     db.init(app.config)
 
     from bys import urls
 
-    app.register_blueprint(url_shortener.bp)
+    app.register_blueprint(urls.bp)
 
     app.add_url_rule("/", endpoint="index")
 

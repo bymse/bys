@@ -2,8 +2,8 @@ from flask import (
     Blueprint, flash, g, redirect, render_template, request, session, url_for
 )
 
-import url_form
-import handlers
+from bys.urls import url_form
+from bys.urls import handlers
 
 bp = Blueprint('urls', __name__)
 

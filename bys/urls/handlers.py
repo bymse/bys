@@ -4,9 +4,10 @@ from bys.routes_helper import get_short_url
 
 
 def handle_create(url):
-    short_url = store.find_short_url(url)
-    if short_url:
-        return short_url
+    code = store.find_alphanum_code(url)
+    if code:
+        return get_short_url(code)
 
-    unique_code = url_code.get_unique_url_code(url)
-    return get_short_url(unique_code)
+    num_code, alphanum_code = url_code.get_url_codes()
+    store.save_url(num_code, alphanum_code, url)
+    return get_short_url(alphanum_code)

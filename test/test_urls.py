@@ -1,5 +1,5 @@
 import unittest
-from unittest.mock import patch, PropertyMock
+from unittest.mock import patch
 from bys.urls import handlers
 
 base_url = 'https://base.com'
@@ -18,7 +18,7 @@ class UrlsHandlersTestCase(unittest.TestCase):
     @patch('bys.urls.store.save_url')
     @patch('bys.urls.url_code.get_url_codes')
     @patch('bys.urls.store.find_alphanum_code', return_value=None)
-    def test_should_save_url_if_doesnt_exist(self, store_find_patch, get_url_codes_patch, store_save_patch, _):
+    def test_should_save_url_if_doesnt_exist(self, _, get_url_codes_patch, store_save_patch, __):
         input_url = 'https://example.com/test/url'
         num_code = 123
         alphanum_code = 'qwe'

@@ -15,8 +15,11 @@ alphanum_list = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm'
 
 def _convert_to_alphanum(num_code):
     alphanum = []
+    if num_code == 0:
+        return alphanum_list[0]
+
     count = len(alphanum_list)
     while num_code:
         alphanum.append(alphanum_list[int(num_code % count)])
         num_code //= count
-    return ''.join(alphanum)
+    return ''.join(reversed(alphanum))

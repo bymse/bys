@@ -1,18 +1,10 @@
 from pymongo import MongoClient
-import pymongo
+import os
 
-from flask import current_app
-from flask import g
-
-_db = None
 urls = None
 
 
-def init(config):
-    global _db, urls
-    client = MongoClient(
-        host=config["MongoDB:Host"],
-        port=config["MongoDB:Port"]
-    )
-    _db = client[config["MongoDB:Database"]]
-    urls = _db.urls
+def init():
+    global urls
+    client = MongoClient(os.environ["bys_mongo_uri"])
+    urls = client.bys.urls

@@ -24,8 +24,8 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    from bys import db 
-    db.init(app.config)
+    from bys import db
+    db.init()
 
     from bys import urls
 

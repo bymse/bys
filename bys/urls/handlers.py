@@ -11,3 +11,7 @@ def handle_create(url):
     num_code, alphanum_code = url_code.get_url_codes()
     store.save_url(num_code, alphanum_code, url)
     return get_short_url(alphanum_code)
+
+
+def handle_short_url(code):
+    return store.find_full_url(code)

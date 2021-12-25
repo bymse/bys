@@ -11,3 +11,7 @@ def num_code_exists(num_code):
 
 def save_url(num_code, alphanum_code, full_url):
     _db.urls.insert_one({num_code, alphanum_code, full_url})
+
+
+def find_full_url(code):
+    return _db.urls.find_one({'alphanum_code': code}, {'full_url': 1});

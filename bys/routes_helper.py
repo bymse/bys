@@ -1,5 +1,4 @@
 import bys.config
-from urllib.parse import urljoin
 
 
 def get_short_url(url_code):

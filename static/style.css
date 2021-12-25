@@ -6,11 +6,22 @@
 }
 
 .url-input {
-    width: 80%;
+    width: 70%;
+}
+
+.content {
+    border-top: 1px solid #ddd;
 }
 
 @media (max-width: 600px) {
     .container {
       width: 90%;
     }
+    .url-input {
+        width: 100%;
+    }
   }
+
+.pure-form button[type=submit] {
+    margin: 0;
+}

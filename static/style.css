@@ -17,6 +17,19 @@ html {
     margin: 0.5em 0;
 }
 
+a.link {
+  text-decoration: none;
+  color: #1687A7;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.link:visited {
+  color: #1687A7;
+}
+
 .url-form .url-input {
   width: calc(100% - 136px);
   border: 1px solid #ccc;
@@ -26,21 +39,19 @@ html {
   box-sizing: border-box;
 }
 
+.errors {
+  color: #276678;
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0.5em;
+}
+
 .url-form .url-input:focus {
   outline: none;
 }
 
-a.link {
-    text-decoration: none;
-    color: #1687A7;
-}
-
-.link:hover {
-    text-decoration: underline;
-}
-
-.link:visited {
-  color: #1687A7;
+.url-form .url-input.errored {
+  border: 1px solid #276678;
 }
 
 .button {

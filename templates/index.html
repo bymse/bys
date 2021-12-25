@@ -14,8 +14,8 @@
     <h3>with nonexistent cats</h3>
     <div class="content">
         {% if short_url %}
-            <p>Short url: <a class="link" target="_blank" href="{{ short_url }}">{{ short_url }}</a>
-                <button class="button">Copy</button>
+            <p>Short url: <a id="short-url" class="link" target="_blank" href="{{ short_url }}">{{ short_url }}</a>
+                <button class="button" id="copy-button">Copy</button>
             </p>
             <p>for <a class="link" target="_blank" href="{{ form.url.data }}">{{ form.url.data }}</a></p>
         {% else %}
@@ -24,11 +24,18 @@
                 {{ form.url(
                             placeholder="https://exmaple.com",
                             pattern="https?://.*",
-                            class="url-input"
+                            class=("url-input" + (" errored" if form.url.errors else ""))
                             ) }}
                 <button type="submit" class="button submit-button">
                     Create short url
                 </button>
+                {% if form.url.errors %}
+                    <ul class="errors">
+                        {% for error in form.url.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
             </form>
         {% endif %}
     </div>

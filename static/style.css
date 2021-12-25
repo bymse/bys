@@ -18,20 +18,21 @@ html {
 }
 
 .url-form .url-input {
-  width: 70%;
+  width: calc(100% - 136px);
   border: 1px solid #ccc;
   border-radius: 0.4em;
   padding: 0.5em 0.6em;
   font-size: 1em;
+  box-sizing: border-box;
 }
 
 .url-form .url-input:focus {
   outline: none;
 }
 
-.link {
-    color: #1687A7;
+a.link {
     text-decoration: none;
+    color: #1687A7;
 }
 
 .link:hover {
@@ -39,7 +40,7 @@ html {
 }
 
 .link:visited {
-  color: inherit;
+  color: #1687A7;
 }
 
 .button {
@@ -66,7 +67,11 @@ html {
     width: 90%;
   }
 
-  .url-input {
+  .url-form .url-input {
     width: 100%;
+  }
+  
+  .submit-button {
+    margin-top: 0.5em;
   }
 }

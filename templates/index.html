@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>bys</title>
 
-    <link rel="stylesheet" href="../static/style.css"/>
+    <link rel="stylesheet" href="/static/style.css"/>
 </head>
 <body>
 <main class="container">
@@ -17,16 +17,15 @@
             <p>Short url: <a class="link" target="_blank" href="{{ short_url }}">{{ short_url }}</a>
                 <button class="button">Copy</button>
             </p>
-            <p>for <a class="link" target="_blank" href="{{ form.url }}">{{ form.url }}</a></p>
+            <p>for <a class="link" target="_blank" href="{{ form.url.data }}">{{ form.url.data }}</a></p>
         {% else %}
             <form class="url-form" method="post" action="/">
-                <input
-                        type="url"
-                        placeholder="Url to be shortened"
-                        required
-                        pattern="https?://.*"
-                        class="url-input"
-                />
+                {{ form.csrf_token }}
+                {{ form.url(
+                            placeholder="https://exmaple.com",
+                            pattern="https?://.*",
+                            class="url-input"
+                            ) }}
                 <button type="submit" class="button submit-button">
                     Create short url
                 </button>

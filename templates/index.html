@@ -5,12 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>bys</title>
-    <link
-            rel="stylesheet"
-            href="https://unpkg.com/purecss@2.0.6/build/pure-min.css"
-            integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5"
-            crossorigin="anonymous"
-    />
+
     <link rel="stylesheet" href="../static/style.css"/>
 </head>
 <body>
@@ -19,24 +14,22 @@
     <h3>with nonexistent cats</h3>
     <div class="content">
         {% if short_url %}
-            <p>Short url: <a href="">{{ short_url }}</a>
-                <button class="pure-button">Copy</button>
+            <p>Short url: <a class="link" target="_blank" href="{{ short_url }}">{{ short_url }}</a>
+                <button class="button">Copy</button>
             </p>
-            <p>for <a href="{{ form.url }}">{{ form.url }}</a></p>
+            <p>for <a class="link" target="_blank" href="{{ form.url }}">{{ form.url }}</a></p>
         {% else %}
-            <form class="pure-form" method="post" action="/">
-                <fieldset>
-                    <input
-                            type="url"
-                            placeholder="Url to be shortened"
-                            required
-                            pattern="https?://.*"
-                            class="url-input"
-                    />
-                    <button type="submit" class="pure-button pure-button-primary">
-                        Create short url
-                    </button>
-                </fieldset>
+            <form class="url-form" method="post" action="/">
+                <input
+                        type="url"
+                        placeholder="Url to be shortened"
+                        required
+                        pattern="https?://.*"
+                        class="url-input"
+                />
+                <button type="submit" class="button submit-button">
+                    Create short url
+                </button>
             </form>
         {% endif %}
     </div>

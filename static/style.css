@@ -1,0 +1,16 @@
+
+
+.container {
+    margin: auto;
+    width: 50%;
+}
+
+.url-input {
+    width: 80%;
+}
+
+@media (max-width: 600px) {
+    .container {
+      width: 90%;
+    }
+  }

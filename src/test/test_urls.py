@@ -2,10 +2,10 @@ import unittest
 from unittest.mock import patch
 from bys.urls import handlers
 
-base_url = 'https://base.com'
+base_url = 'https://base.lan'
 
 
-@patch('bys.config.get_val', return_value=base_url)
+@patch('bys.config.get_base_url', return_value=base_url)
 class UrlsHandlersTestCase(unittest.TestCase):
 
     @patch('bys.urls.store.find_alphanum_code')
@@ -13,7 +13,7 @@ class UrlsHandlersTestCase(unittest.TestCase):
         existing_url = 'https://example.com'
         alphanum_code = 'qwe123'
         store_patch.return_value = alphanum_code
-        self.assertEqual(handlers.handle_create(existing_url), f'{base_url}/s/{alphanum_code}')
+        self.assertEqual(f'{base_url}/{alphanum_code}', handlers.handle_create(existing_url))
 
     @patch('bys.urls.store.save_url')
     @patch('bys.urls.url_code.get_url_codes')

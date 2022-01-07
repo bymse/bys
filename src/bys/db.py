@@ -1,10 +1,10 @@
 from pymongo import MongoClient
-import os
+from bys.config import get_mongo_uri
 
 urls = None
 
 
 def init():
     global urls
-    client = MongoClient(os.environ["bys_mongo_uri"])
+    client = MongoClient(get_mongo_uri())
     urls = client.bys.urls

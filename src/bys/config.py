@@ -12,3 +12,7 @@ def get_base_url():
 
 def get_mongo_uri():
     return os.environ["BYS_MONGO_URI"]
+
+
+def get_secret_key():
+    return os.environ["BYS_SECRET_KEY"]

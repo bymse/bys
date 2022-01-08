@@ -1,0 +1,43 @@
+name: Bys.Deploy
+on: workflow_dispatch
+
+jobs:
+  prepare-image:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup short-sha
+        id: sha-setup
+        run: echo "::set-output name=short-sha::$(echo $GITHUB_SHA | head -c 7)"
+
+      - name: Log in to GitHub Docker Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check last image tag
+        id: version-sha-verification
+        run: |
+          set -e
+          JWT_TOKEN=$(curl -s -u $GITHUB_ACTOR:${{secrets.GITHUB_TOKEN}} 'https://ghcr.io/token?scope=repository:${{github.repository}}/site:pull' | jq -r '.token')
+          RESPONSE=$(curl -s -H "Authorization: Bearer $JWT_TOKEN" https://ghcr.io/v2/bymse/${{github.repository}}/site/tags/list)
+          CURRENT_TAG='sha-${{ steps.sha-setup.outputs.short-sha }}'
+          if [[ "$RESPONSE" == *"$CURRENT_TAG"*  ]] 
+            then
+              echo "No need for image"
+            else
+              echo "::set-output name=need-image::true"
+          fi
+      - name: Build and push image
+        uses: docker/build-push-action@v2
+        if: ${{ steps.version-sha-verification.outputs.need-image == 'true' }}
+        with:
+          push: true
+          tags: |
+            ghcr.io/${{github.repository}}/site:sha-${{ steps.sha-setup.outputs.short-sha }}

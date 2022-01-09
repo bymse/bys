@@ -1,6 +1,7 @@
 from flask import (
     Blueprint, redirect, render_template, abort
 )
+import datetime
 
 from bys.routes_helper import get_short_url
 from bys.urls import handlers
@@ -29,4 +30,9 @@ def redirect_short_url(code):
         abort(404)
 
     short_url = get_short_url(code)
-    return render_template('redirect-page.html', url=full_url, short_url=short_url)
+    ts = datetime.datetime.now().timestamp()
+    return render_template('redirect-page.html',
+                           url=full_url,
+                           short_url=short_url,
+                           timestamp=ts
+                           )

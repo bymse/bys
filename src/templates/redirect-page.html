@@ -8,11 +8,13 @@
     <meta property="og:title" content="This cat doesnt exist" />
     <meta property="og:description" content="This cat doesnt exist" />
     <meta property="og:url" content="{{ short_url }}" />
-    <meta http-equiv="Refresh" content="0; url={{ url }}"/>
 </head>
 <body>
 <div>
     <a href="{{ url }}" rel="noopener noreferrer nofollow">{{ url }}</a>
+    <script>
+      window.location = "{{ url }}";
+    </script>
 </div>
 </body>
 </html>

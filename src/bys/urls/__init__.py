@@ -2,6 +2,7 @@ from flask import (
     Blueprint, redirect, render_template, abort
 )
 
+from bys.routes_helper import get_short_url
 from bys.urls import handlers
 from bys.urls import url_form
 
@@ -27,4 +28,5 @@ def redirect_short_url(code):
     if not full_url:
         abort(404)
 
-    return render_template('redirect-page.html', url=full_url)
+    short_url = get_short_url(code)
+    return render_template('redirect-page.html', url=full_url, short_url=short_url)

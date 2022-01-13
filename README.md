@@ -1,5 +1,4 @@
 # BYS: bymse's url shortener
----
 
 Hi there!
 It's a simplistic url shortener with one great feature: short urls have preview images from https://thiscatdoesnotexist.com.
@@ -9,10 +8,10 @@ Feel free to take the idea and do more with it. Have fun!
 ## Examples
 
 ![Telegram](readme-images/Telegram.jpg?raw=true "Telegram") 
- 
-![WhatsApp](readme-images/WhatsApp.jpg?raw=true "WhatsApp")  
 
 ![Vk](readme-images/VK.jpg?raw=true "Vk")
+ 
+![WhatsApp](readme-images/WhatsApp.jpg?raw=true "WhatsApp")  
 
 
 ## Resources

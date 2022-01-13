@@ -32,10 +32,6 @@ a.link {
 
 .header-link {
     color: #000;
-    text-decoration: none;
-}
-
-.header-link:hover {
     text-decoration: underline;
 }
 

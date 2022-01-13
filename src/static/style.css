@@ -86,6 +86,14 @@ a.link {
     border: 1px solid #276678;
 }
 
+#github-label {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1em;
+    font-weight: bold;
+}
+
 @media (max-width: 600px) {
     .container {
         width: 90%;
@@ -97,5 +105,12 @@ a.link {
 
     .submit-button {
         margin-top: 0.5em;
+    }
+
+    #github-label {
+        top: unset;
+        right: unset;
+        bottom: 0;
+        left: 0;
     }
 }

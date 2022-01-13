@@ -61,7 +61,7 @@ stages:
         command: buildAndPush
         repository: $(imageRepository)
         dockerfile: $(dockerfilePath)
-        containerRegistry: 'bymsebys-registry'
+        containerRegistry: 'bymse-bys-registry'
         tags: |
           $(tag)
 
@@ -75,7 +75,7 @@ stages:
     steps:
     - task: AzureWebAppContainer@1
       inputs:
-        azureSubscription: '$(azureSubscription)'
-        appName: 'bymse-bys'
+        azureSubscription: 'bymse-bys-subscription'
+        appName: 'bymse-bys-site'
         containers: '$(containerRegistry)/$(imageRepository):$(tag)'
         appSettings: -BYS_BASE_URL "$(appBaseUrl)" -BYS_MONGO_URI "$(cosmosDbConnectionString)" -BYS_SECRET_KEY "$(flaskSecretKey)"

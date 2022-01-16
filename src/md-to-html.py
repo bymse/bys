@@ -9,10 +9,13 @@ md = readme.read()
 html = markdown.markdown(md)
 
 soup = BeautifulSoup(html, 'html.parser')
-images = soup.find_all('img')
 
-for image in images:
+for image in soup.find_all('img'):
     image["src"] = 'https://github.com/bymse/bys/raw/main/' + image['src']
+
+for link in soup.find_all('a'):
+    link["target"] = "_blank"
+    link["rel"] = "noreferrer noopener nofollow"
 
 soup.find('h1').extract()
 

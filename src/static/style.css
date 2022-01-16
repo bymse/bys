@@ -112,6 +112,11 @@ a.link {
     max-width: 830px;
 }
 
+#readme a,
+#readme a:visited {
+    color: #1687A7;
+}
+
 @media (max-width: 600px) {
     .container {
         width: 90%;

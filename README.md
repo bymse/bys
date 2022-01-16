@@ -1,7 +1,7 @@
 # BYS: bymse's url shortener
 
 Hi there!
-It's a simplistic url shortener with one great feature: short urls have preview images from https://thiscatdoesnotexist.com.
+It's a simplistic url shortener with one great feature: short urls have preview images from [https://thiscatdoesnotexist.com](https://thiscatdoesnotexist.com).
 
 Feel free to take the idea and do more with it. Have fun!
 

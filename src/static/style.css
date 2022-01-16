@@ -84,11 +84,7 @@ a.link {
     border: 1px solid #276678;
 }
 
-#github-label {
-    position: fixed;
-    top: 0;
-    right: 0;
-    padding: 1em;
+.github {
     font-weight: bold;
 }
 
@@ -128,12 +124,6 @@ a.link {
 
     .submit-button {
         margin-top: 0.5em;
-    }
-
-    #github-label {
-        position: initial;
-        margin-left: -8px;
-        padding: 0 0 1em 1em;
     }
 
     #readme img {

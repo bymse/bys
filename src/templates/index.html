@@ -9,11 +9,6 @@
     <link rel="stylesheet" href="/static/style.css"/>
 </head>
 <body>
-<div id="github-label">
-    <a target="_blank" class="link" rel="noreferrer noopener nofollow" href="https://github.com/bymse/bys">
-        GitHub
-    </a>
-</div>
 <main class="container">
     <h1><a class="header-link" href="/">BYS</a>: bymse's url shortener </h1>
     <h3>with nonexistent cats</h3>
@@ -44,7 +39,16 @@
             </form>
         {% endif %}
     </div>
+    <h2 id="about">&#9658; About</h2>
+    <div id="readme" class="hide">
+        {% include "readme.html" %}
+    </div>
 </main>
+<div id="github-label">
+    <a target="_blank" class="link" rel="noreferrer noopener nofollow" href="https://github.com/bymse/bys">
+        GitHub
+    </a>
+</div>
 <script async src="/static/script.js"></script>
 </body>
 </html>

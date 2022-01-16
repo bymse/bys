@@ -1,6 +1,8 @@
 html {
     font-family: sans-serif;
     font-size: 1em;
+    height: 100%;
+    margin: 0;
 }
 
 .container {
@@ -83,11 +85,31 @@ a.link {
 }
 
 #github-label {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     padding: 1em;
     font-weight: bold;
+}
+
+#about {
+    cursor: pointer;
+}
+
+#about:hover {
+    text-decoration: underline;
+}
+
+#readme { 
+    padding-bottom: 1em;
+}
+
+#readme.hide {
+    display: none;
+}
+
+#readme img {
+    max-width: 830px;
 }
 
 @media (max-width: 600px) {
@@ -104,9 +126,20 @@ a.link {
     }
 
     #github-label {
-        top: unset;
-        right: unset;
-        bottom: 0;
-        left: 0;
+        position: initial;
+        margin-left: -8px;
+        padding: 0 0 1em 1em;
+    }
+
+    #readme img {
+        max-width: 290px;
+    }
+    
+    .container {
+        min-height: calc(100vh - 55px);
+    }
+
+    body {
+        height: 100%;
     }
 }

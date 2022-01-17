@@ -4,4 +4,4 @@ from wtforms.validators import DataRequired, URL
 
 
 class UrlForm(FlaskForm):
-    url = URLField('url', validators=[DataRequired(), URL()])
+    url = URLField('url', validators=[DataRequired(), URL(require_tld=False)])

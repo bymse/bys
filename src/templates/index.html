@@ -39,13 +39,15 @@
             </form>
         {% endif %}
     </div>
+    {% if not short_url %}
     <h2 id="about">&#9658; About</h2>
     <section id="readme" class="hide">
         <a target="_blank" class="github link" rel="noreferrer noopener nofollow" href="https://github.com/bymse/bys">
             GitHub
         </a>
         {% include "readme.html" %}
-    </div>
+    </section>
+    {% endif %} 
 </main>
 <script async src="/static/script.js"></script>
 </body>
